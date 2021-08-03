@@ -27,11 +27,11 @@ class Lecturer(Mentor):
         return f'Имя: {self.name}, \nФамилия: {self.surname}, \nСредняя оценка за лекции:{self.average_grade}'
 
     # for the exercise 3 for the comparison
-    def __lt__(self, other):
-        if not isinstance(other, Lecturer):
-            print('Not a lecturer')
-            return
-        return self.average_grade < other.average_grade
+   ## def __lt__(self, other):
+       # if not isinstance(other, Lecturer):
+        ##    print('Not a lecturer')
+          ##  return
+      ##  return self.average_grade < other.average_grade
 
 
 # exercise 4 for dividing  not finished
@@ -64,7 +64,7 @@ class Student:
 
     # exerise 2  grades for teachers  not working for some reason.
     def rate_hm_lec(self, lecturer, course, grade):
-        if isinstance(lecturer, Lecturer) and course in self.courses_in_progress and course in Lecturer.courses_attached:
+        if isinstance(lecturer, Lecturer) and course in self.courses_in_progress and course in lecturer.courses_attached:
             if course in lecturer.grades_for_lecturer:
                 lecturer.grades_for_lecturer[course] += grade
             else:
@@ -79,9 +79,8 @@ class Student:
         return f'Имя: {self.name}, \nФамилия: {self.surname}, \nСредняя оценка за лекции:{self.average_grade_st}, \nКурсы в процессе изучения: {self.courses_in_progress}, \nЗавершенные курсы: {self.finished_courses}'
 
     # for exerise 4 diving not finished
-    def __div__(self):
-        return self.grades // len(self.grades)
-
+  ##  def __div__(self):
+       ## return self.grades // len(self.grades)
 
 best_student = Student('Ruoy', 'Eman', 'your_gender')
 best_student.courses_in_progress += ['Python']
@@ -94,7 +93,7 @@ cool_mentor.courses_attached += ['Python']
 cool_mentor.rate_hw(best_student, 'Python', 10)
 cool_mentor.rate_hw(best_student, 'Python', 10)
 cool_mentor.rate_hw(best_student, 'Python', 10)
-best_student.rate_hm_lec(best_lecturer, 'Pyhton', 10)
+best_student.rate_hm_lec(best_lecturer, 'Pyhton', 9)
 
 # print(best_student.courses_in_progress)
 print(best_lecturer.__dict__)
